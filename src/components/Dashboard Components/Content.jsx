@@ -7,20 +7,16 @@ const Content = ({activeTab}) => {
     const selectedTab = () => {
         switch (activeTab) {
             case "Dashboard":
-                return DashboardContent;
+                return <DashboardContent/>;
             case "Expenses":
-                return ExpenseContent;
+                return <ExpenseContent/>;
             case "Reports":
-                return ReportContent;
+                return <ReportContent/>;
         }
     }
     return (
-        <div className="sb-nav-fixed">
-            <div id="layoutSidenav">
-                <div id="layoutSidenav_content">
-                    {activeTab}
-                </div>
-            </div>
+        <div id="layoutSidenav_content">
+            {selectedTab()}
         </div>
     )
 }
