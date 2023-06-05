@@ -9,13 +9,13 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Content from './Dashboard Components/Content';
 const DashBoard = () => {
 
-    const [activeTab, setActiveTab] = useState("home");
-  
+    const [activeTab, setActiveTab] = useState("Dashboard");
+
     return (
       <div>
         <Header/>
-        <SideBar/>
-        <Content/>
+        <SideBar setActiveTab={setActiveTab}/>
+        <Content activeTab={activeTab}/>
       </div>
     );
   };

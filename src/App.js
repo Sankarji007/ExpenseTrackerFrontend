@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import SignUp from "./components/SignUp";
-import DashBoard from './components/DashBoard';
+import MainPage from './components/MainPage';
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/dashboard" element={<DashBoard/>}/>
+          <Route path="/app" element={<MainPage/>}/>
         </Routes>
       
     </Router>
