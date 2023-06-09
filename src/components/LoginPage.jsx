@@ -42,7 +42,7 @@ const LoginPage = () => {
         if(data.accessToken){
           localStorage.setItem('accessToken', data.accessToken);      
           console.log(data.accessToken); 
-          navigate('/dashboard'); 
+          navigate('/app');
         }
         else
         {
