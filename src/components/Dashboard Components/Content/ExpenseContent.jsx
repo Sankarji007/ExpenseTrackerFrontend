@@ -1,12 +1,11 @@
 import React from 'react';
-import {useState} from "react";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
+import {MyTable} from "../Utill/MyTable";
 
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -87,9 +86,6 @@ const ExpenseContent = () => {
                 </div>
             </form>
             <div>
-                <Button variant="outlined">
-                    Slide in alert dialog
-                </Button>
                 <Dialog
                     open={open}
                     TransitionComponent={Transition}
@@ -100,17 +96,17 @@ const ExpenseContent = () => {
                     <DialogTitle>{"Customizing Expence Type"}</DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-slide-description">
-                        
+
                             <div className='dialog-table'>
                                 <div className="input-add-expenc">
-                                   <input type="text" placeholder='Enter Your Expence Type' />
-                                   <button type="submit" className="btn btn-primary">
-                                      Add
-                                   </button>
+                                    <input type="text" placeholder='Enter Your Expence Type'/>
+                                    <button type="submit" className="btn btn-primary">
+                                        Add
+                                    </button>
                                 </div>
-                                                               
+                                <MyTable/>
                             </div>
-                        
+
                         </DialogContentText>
                     </DialogContent>
                     {/* <DialogActions>
