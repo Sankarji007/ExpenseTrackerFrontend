@@ -10,53 +10,29 @@ import TableCell from "@mui/material/TableCell";
 
 
 const sample = [
-    ['Frozen yoghurt', 159, 6.0, 24, 4.0],
-    ['Ice cream sandwich', 237, 9.0, 37, 4.3],
-    ['Eclair', 262, 16.0, 24, 6.0],
-    ['Cupcake', 305, 3.7, 67, 4.3],
-    ['Gingerbread', 356, 16.0, 49, 3.9],
+    { ExpenseType: 'Frozen yoghurt', Action: 'Action 1' },
+    { ExpenseType: 'Ice cream sandwich', Action: 'Action 2' },
+    { ExpenseType: 'Eclair', Action: 'Action 3' },
+    { ExpenseType: 'Cupcake', Action: 'Action 4' },
+    { ExpenseType: 'Gingerbread', Action: 'Action 5' },
 ];
 
-function createData(id, dessert, calories, fat, carbs, protein) {
-    return {id, dessert, calories, fat, carbs, protein};
-}
 
 const columns = [
     {
-        width: 200,
-        label: 'Dessert',
-        dataKey: 'dessert',
+        width: 100,
+        label: 'Expense Type',
+        dataKey: 'ExpenseType',
     },
     {
-        width: 120,
-        label: 'Calories\u00A0(g)',
-        dataKey: 'calories',
-        numeric: true,
-    },
-    {
-        width: 120,
-        label: 'Fat\u00A0(g)',
-        dataKey: 'fat',
-        numeric: true,
-    },
-    {
-        width: 120,
-        label: 'Carbs\u00A0(g)',
-        dataKey: 'carbs',
-        numeric: true,
-    },
-    {
-        width: 120,
-        label: 'Protein\u00A0(g)',
-        dataKey: 'protein',
-        numeric: true,
-    },
+        width: 50,
+        label: 'Action',
+        dataKey: 'Action',
+
+    }
 ];
 
-const rows = Array.from({length: 200}, (_, index) => {
-    const randomSelection = sample[Math.floor(Math.random() * sample.length)];
-    return createData(index, ...randomSelection);
-});
+
 
 const VirtuosoTableComponents = {
     Scroller: React.forwardRef((props, ref) => (
@@ -93,23 +69,40 @@ function fixedHeaderContent() {
 function rowContent(_index, row) {
     return (
         <React.Fragment>
-            {columns.map((column) => (
-                <TableCell
-                    key={column.dataKey}
-                    align={column.numeric || false ? 'right' : 'left'}
-                >
-                    {row[column.dataKey]}
-                </TableCell>
-            ))}
+            {columns.map((column) => {
+                if (column.dataKey === 'Action') {
+                    return (
+                        <TableCell key={column.dataKey} align="center">
+                            <button className="btn btn-danger btn-sm me-2" >
+                                {/*onClick={() => handleDelete(row)}*/}
+                                <i className="fa fa-trash"></i>
+                            </button>
+                            <button className="btn btn-primary btn-sm" >
+                                {/*onClick={() => handleEdit(row)}*/}
+                                <i className="fa fa-pencil"></i>
+                            </button>
+                        </TableCell>
+                    );
+                }
+                return (
+                    <TableCell key={column.dataKey} align={column.numeric || false ? 'right' : 'left'}>
+                        {row[column.dataKey]}
+                    </TableCell>
+                );
+            })}
         </React.Fragment>
     );
 }
-
+const mystle={
+    height: '40vh',
+    width: '100%',
+    'margin-top':'3%'
+}
 export const MyTable = () => {
     return (
-        <><Paper style={{height: 400, width: '100%'}}>
+        <><Paper style={mystle}>
             <TableVirtuoso
-                data={rows}
+                data={sample}
                 components={VirtuosoTableComponents}
                 fixedHeaderContent={fixedHeaderContent}
                 itemContent={rowContent}

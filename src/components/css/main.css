@@ -11293,3 +11293,9 @@ body {
   padding-left: 25px;
   outline: none;
 }
+.MuiPaper-elevation24{
+  width:50%;
+}
+th.MuiTableCell-root:nth-child(2){
+
+}
