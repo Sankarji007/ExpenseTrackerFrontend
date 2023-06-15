@@ -97,16 +97,26 @@ const ExpenseContent = () => {
                     onClose={handleClose}
                     aria-describedby="alert-dialog-slide-description"
                 >
-                    <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+                    <DialogTitle>{"Customizing Expence Type"}</DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-slide-description">
-                            {/*code here sri*/}
+                        
+                            <div className='dialog-table'>
+                                <div className="input-add-expenc">
+                                   <input type="text" placeholder='Enter Your Expence Type' />
+                                   <button type="submit" className="btn btn-primary">
+                                      Add
+                                   </button>
+                                </div>
+                                                               
+                            </div>
+                        
                         </DialogContentText>
                     </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleClose}>Disagree</Button>
-                        <Button onClick={handleClose}>Agree</Button>
-                    </DialogActions>
+                    {/* <DialogActions>
+                        <Button onClick={handleClose}>close</Button>
+                        
+                    </DialogActions> */}
                 </Dialog>
             </div>
 

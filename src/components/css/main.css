@@ -11281,3 +11281,15 @@ body {
   right: 10px;
   cursor: pointer;
 }
+
+.input-add-expenc button{
+  height: 33px;
+  margin-top: -3px;
+  margin-left: 17px;
+  cursor: pointer;
+}
+
+.input-add-expenc input{
+  padding-left: 25px;
+  outline: none;
+}
