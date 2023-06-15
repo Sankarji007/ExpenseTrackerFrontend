@@ -11242,3 +11242,42 @@ body {
   font-size: 0.75rem;
   border-radius: 0.375rem !important;
 }
+
+#select-input{
+  position: relative;
+}
+
+#select-input i{
+  position: absolute;
+  right: 9%;
+  top: 43%;
+  cursor: pointer;
+}
+
+#popup-checkbox {
+  display: none;
+}
+
+#popup-checkbox:checked + .popup {
+  display: block;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 9999;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
