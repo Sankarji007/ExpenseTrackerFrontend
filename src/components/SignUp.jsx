@@ -14,6 +14,13 @@ const SignUp = () => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
+    if (/[\d~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(value)) {
+      // Show the error message
+      document.getElementById("error-message").style.display = "block";
+    } else {
+      // Hide the error message
+      document.getElementById("error-message").style.display = "none";
+    }
   };
 
   const handleSubmit = (event) => {
@@ -69,6 +76,9 @@ const SignUp = () => {
             placeholder="e.g Jane Doe"
             required
           />
+          <p id="error-message" style={{ display: "none", color: "red" }}>
+            Numbers and special characters are not allowed.
+          </p>
         </div>
         <div className="form-group mt-3">
           <label>Email address</label>

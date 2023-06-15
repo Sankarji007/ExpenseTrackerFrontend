@@ -38,7 +38,7 @@ const ExpenseContent = () => {
                         id="expenseDate"
                     />
                 </div>
-                <div className="col-12 col-md-3 form-group mt-3">
+                <div id="select-input" className="col-12 col-md-3 form-group mt-3">
                     <label htmlFor="expenseType">Expense Type:</label>
                     <select
                         className="form-control"
@@ -51,6 +51,15 @@ const ExpenseContent = () => {
                         <option value="Entertainment">Entertainment</option>
                         <option value="Utilities">Utilities</option>
                     </select>
+
+                    <label for="popup-checkbox">
+                     <i class="fa">&#xf013;</i>
+                    </label>
+                    <input type="checkbox" id="popup-checkbox" />
+                    <div class="popup">
+                      <span class="close-icon"><i class="fa">&#xf00d;</i></span>
+                        This is the content of the pop-up.
+                    </div>
                 </div>
 
                 <div className="col-12 mt-3">
