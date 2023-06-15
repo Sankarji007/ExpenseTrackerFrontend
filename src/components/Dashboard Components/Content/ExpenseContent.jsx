@@ -1,5 +1,17 @@
 import React from 'react';
+import {useState} from "react";
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
 
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 const ExpenseContent = () => {
     const formStyle = {
         padding: "20px",
@@ -7,7 +19,15 @@ const ExpenseContent = () => {
         border: "1px solid #ced4da",
         borderRadius: "4px"
     };
+    const [open, setOpen] = React.useState(false);
 
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
     return (
         <div className="container">
             <form className="row justify-content-center" style={formStyle}>
@@ -53,21 +73,44 @@ const ExpenseContent = () => {
                     </select>
 
                     <label for="popup-checkbox">
-                     <i class="fa">&#xf013;</i>
+                        <i class="fa" onClick={handleClickOpen}>&#xf013;</i>
                     </label>
-                    <input type="checkbox" id="popup-checkbox" />
-                    <div class="popup">
-                      <span class="close-icon"><i class="fa">&#xf00d;</i></span>
-                        This is the content of the pop-up.
-                    </div>
+
                 </div>
+
 
                 <div className="col-12 mt-3">
                     <button type="submit" className="btn btn-primary">
                         Add
                     </button>
+
                 </div>
             </form>
+            <div>
+                <Button variant="outlined">
+                    Slide in alert dialog
+                </Button>
+                <Dialog
+                    open={open}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={handleClose}
+                    aria-describedby="alert-dialog-slide-description"
+                >
+                    <DialogTitle>{"Use Google's location service?"}</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText id="alert-dialog-slide-description">
+                            {/*code here sri*/}
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={handleClose}>Disagree</Button>
+                        <Button onClick={handleClose}>Agree</Button>
+                    </DialogActions>
+                </Dialog>
+            </div>
+
+
             <div className="mt-5">
                 <table className="table table-striped">
                     <thead>
